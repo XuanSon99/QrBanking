@@ -21,6 +21,16 @@ main {
     width: 500px;
     padding: 30px;
 }
-.box img{
+
+.box img {
     width: 250px;
+}
+
+.read-money p {
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+
+.read-money span {
+    color: #1976d2;
 }
