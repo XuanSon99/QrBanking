@@ -7,8 +7,8 @@
       <v-text-field v-model="account_number" label="Số tài khoản" outlined clearable></v-text-field>
       <v-text-field v-model="amount" label="Số tiền" outlined clearable></v-text-field>
       <v-card class="mb-8 px-3 py-2 read-money" outlined v-if="amount">
-        <span>{{ formatVNPrice(amount) }}</span>
-        <p>{{ numberToText(amount) }}</p>
+        <span>{{ formatVNPrice(formatAmount(amount)) }}</span>
+        <p>{{ numberToText(formatAmount(amount)) }}</p>
       </v-card>
       <v-text-field v-model="content" label="Nội dung chuyển" outlined clearable></v-text-field>
       <v-btn class="primary" large block @click="createHandle">Tạo mã</v-btn>
@@ -42,7 +42,7 @@ export default {
       this.image = `https://img.vietqr.io/image/${this.bank}-${this.account_number}-compact2.jpg?amount=${this.formatAmount(this.amount)}&addInfo=${this.content}&accountName=QR`
     },
     formatAmount(value) {
-      return Number(value.replaceAll(",", "")).toFixed(0)
+      return Number(value.replaceAll(",", "").replaceAll(".", "")).toFixed(0)
     },
     formatVNPrice(value) {
       let val = (value / 1).toFixed(0)
