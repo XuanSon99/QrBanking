@@ -17,8 +17,11 @@
 
 @media (max-width: 480px) {
 
-    .mowgrid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    main {
+        padding: 20px;
+    }
+    .login .v-card {
+        width: 100%;
     }
 
 }
